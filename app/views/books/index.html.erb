@@ -1,15 +1,14 @@
-This is the index view. Here are our books. Nice!
-<br>
-<% @books.each do |book| %>
-  <%= book.title %>
-<% end %>
+<div class="c-container-page">
+  This is the index view. Here are our books. Nice!
+  <br>
+  <div class="c-section grid">
+    <% @books.each do |book| %>
+      <div class="c-card grid__cell 1/4">
+        <a href= <%= "books/" + book.id.to_s  %>>
+          <%= book.title %>
+        </a>
+      </div>
+    <% end %>
+  </div>
 
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>
-  </li>
-<% end %>
+</div>

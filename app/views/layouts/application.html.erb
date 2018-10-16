@@ -9,14 +9,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header class="c-section c-header">
-    <p class = "c-title c-header--name">Le Book Shoppe</p>
+    <a href="/"><p class = "c-title c-header--name">Le Book Shoppe</p></a>
   </header>
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
     <footer class="c-footer c-section">
-      <button class="u-float-right c-button c-button--focal c-button--small">Sign in</button>
+      <% if user_signed_in? %>
+          <div class="u-float-right"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></div>
+      <% else %>
+          <div class="u-float-right"><%= link_to('Login',new_user_session_path) %></div>
+      <% end %>
     </footer>
   </body>
 </html>

@@ -1,0 +1,7 @@
+You are buying: <%= @book.title %> for $<%= book.price %>. Gnarly!
+<br>
+<%= form_for Sale.new do |f| %>
+  <% :user = current_user %>
+  <% :book = @book %>
+  <%= f.submit %>
+<% end %>
