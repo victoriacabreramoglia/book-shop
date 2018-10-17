@@ -1,15 +1,17 @@
 class SalesController < ApplicationController
   before_action :authenticate_user!
   def new
-    if params.include?(:book)
-      @book = params[:book]
-    else
-      redirect_to books_path
-   end
+      @book = Book.find(params[:book_id])
   end
 
   def create
-    Sale.create user: current_user, book: params[:book]
+    stripe_token = params[:stripe_token]
+    sale_charge = StripeServices::CreateCharge.call(@book, current_user, stripe_token)
+    Sale.create user: current_user, book: params[:book], stripe_charge_id: sale_charge.id
+  end
+
+  def index
+    @sales = "duh"
   end
 
 end

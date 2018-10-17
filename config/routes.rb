@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   root to: 'welcome#index'
   get 'authors', to: "authors#index"
-  get 'books/', to: "books#index"
-  get 'books/:id', to: 'books#show'
-  get 'sales', to: 'sales#new'
-  post 'sales', to: 'sales#create'
+  resources :books, only: [:index, :show] do
+    resources :sales
+  end
 
 
   namespace :admin do

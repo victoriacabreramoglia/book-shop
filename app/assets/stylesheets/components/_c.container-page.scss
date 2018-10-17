@@ -3,7 +3,7 @@
 // Immediate child of the body tag. Wraps all elements of a page.
 //
 // .c-container-page--slim   - Slim the page down.
-// 
+//
 // Styleguide: components.contain.container-page
 
 .c-container-page {
@@ -11,7 +11,7 @@
   min-height: $h-page;
   margin: $s-large auto 0;
   max-width: $w-regular;
-  background: $c-white;
+  background-color: blue;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

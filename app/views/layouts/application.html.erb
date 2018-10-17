@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LeBookShoppe</title>
+    <title>Le Book Shoppe</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://js.stripe.com/v3/"></script>
   </head>
   <header class="c-section c-header">
     <a href="/"><p class = "c-title c-header--name">Le Book Shoppe</p></a>
@@ -14,13 +15,15 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <footer class="c-footer c-section">
-      <% if user_signed_in? %>
-          <div class="u-float-right"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></div>
-      <% else %>
-          <div class="u-float-right"><%= link_to('Login',new_user_session_path) %></div>
-      <% end %>
-    </footer>
+    <div class="c-container-page">
+      <%= yield %>
+      <footer class="c-footer c-section">
+        <% if user_signed_in? %>
+            <div class="u-float-right"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></div>
+        <% else %>
+            <div class="u-float-right"><%= link_to('Login',new_user_session_path) %></div>
+        <% end %>
+      </footer>
+    </div>
   </body>
 </html>

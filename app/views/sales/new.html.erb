@@ -1,7 +1,11 @@
-You are buying: <%= @book.title %> for $<%= book.price %>. Gnarly!
+You are buying: <%= @book.title %> for $<%= @book.price %>. Gnarly!
 <br>
-<%= form_for Sale.new do |f| %>
-  <% :user = current_user %>
-  <% :book = @book %>
+<%= form_for [@book, Sale.new], html: { id: "payment-form" } do |f| %>
+  <%= hidden_field_tag(:book_id, @book.id) %>
+  <%= hidden_field_tag(:user_id, current_user.id) %>
+  <%= f.hidden_field :stripe_token %>
+  <div id="card-element">
+    <!-- inject Stripe card form -->
+  </div>
   <%= f.submit %>
 <% end %>
