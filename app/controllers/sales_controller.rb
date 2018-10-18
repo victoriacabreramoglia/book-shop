@@ -6,7 +6,7 @@ class SalesController < ApplicationController
 
   def create
     stripe_token = params[:stripe_token]
-    sale_charge = StripeServices::CreateCharge.call(@book, current_user, stripe_token)
+    sale_charge = StripeServices::CreateCharge.call(params[:book], params[:user], stripe_token)
     Sale.create user: current_user, book: params[:book], stripe_charge_id: sale_charge.id
   end
 
