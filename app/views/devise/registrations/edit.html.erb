@@ -7,6 +7,22 @@
         <%= devise_error_messages! %>
 
         <div class="field">
+          <%= f.label :first_name %><br />
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "first name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :last_name %><br />
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :avatar %><br />
+          <%= image_tag current_user.avatar %>
+          <%= f.file_field :avatar, autofocus: true, autocomplete: "avatar" %>
+        </div>
+
+        <div class="field">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
