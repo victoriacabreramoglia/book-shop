@@ -6,6 +6,8 @@
       <div class="c-card grid__cell 1/4">
         <a href= <%= "books/" + book.id.to_s  %>>
           <%= book.title %>
+          <br>
+          Monsieur <%= book.author.last_name %>
         </a>
       </div>
     <% end %>
