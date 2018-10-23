@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :books, through: :sales
 
   has_many :books_authored, class_name: "Book", foreign_key: :author_id
+
+  has_one_attached :avatar
 end
