@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   root to: 'welcome#index'
   get 'authors', to: "authors#index"
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
+    mount Sidekiq::Web => '/sidekiq'
     resources :books
   end
 

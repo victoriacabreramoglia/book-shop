@@ -1,6 +1,3 @@
 <div class="c-section">
-  <% @books.each do |book| %>
-    <%= book.title %>
-    <br>
-  <% end %>
+<%= react_component("AdminBooksIndex", { books: @books }) %>
 </div>

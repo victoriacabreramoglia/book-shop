@@ -4,6 +4,8 @@ You are buying: <%= @book.title %> for $<%= @book.price %>. Gnarly!
   <%= hidden_field_tag(:book_id, @book.id) %>
   <%= hidden_field_tag(:user_id, current_user.id) %>
   <%= f.hidden_field :stripe_token %>
+  <%= f.label :do_bad_thing, "Do a bad thing" %>
+  <%= f.check_box :do_bad_thing %>
   <div id="card-element">
     <!-- inject Stripe card form -->
   </div>
